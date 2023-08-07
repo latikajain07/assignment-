@@ -22,13 +22,17 @@ public class BonusController {
 	    private EmployeeRepository employeeRepository;
 
 	    @GetMapping("/eligible-employees")
-	    public List<Employee> getEligibleEmployees(@RequestParam(value = "dateParam", required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate date) {
-	        return employeeRepository.findAll()
+	    public List<Employee> getEligibleEmployees(@RequestParam(value = "dateParam", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) {
+	        
+	    	 System.out.println(date);
+	    	return employeeRepository.findAll()
 	                .stream()
 	                .filter(emp -> emp.getJoinDate().isBefore(date))
 	                .collect(Collectors.toList());
+	       
+	        
 	    }
-
+	    
 	}
 
 

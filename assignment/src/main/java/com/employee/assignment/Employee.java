@@ -32,20 +32,23 @@ public class Employee {
 	private String name;
 
 	@Column(name= "join_date")
-	private LocalDate date;
+	private LocalDate joinDate;
 	
-	@OneToMany(targetEntity = Department.class, cascade = CascadeType.ALL)
-	@JoinColumn(name="EmpDepartment")
-	private ArrayList<Department> emp_department = new ArrayList<>();
+	
 	
 	private String currency ;
 	
 	private double salary;
 
-	public LocalDate getJoinDate() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+	 public LocalDate getJoinDate() {
+	        return joinDate;
+	    }
+
+	    public void setJoinDate(LocalDate joinDate) {
+	        this.joinDate = joinDate;
+	    }
+
+
+
 	
 }
